@@ -275,6 +275,14 @@ footer {
 }
 
 @media (max-width: 480px) {
+    .logo {
+        margin: auto;
+    }
+
+    .logo img {
+        transform: scale(0.7);
+    }
+
     .search-box:hover{
         width: 312px;
     }

@@ -1,16 +1,9 @@
 $(document).ready(function(){
-    $(".menu li li").click(function(){
+    $('.menu ul li ul li').click(function(){
         var _this =$(this);
         var liurl = _this.data("url");
-        $("main").html();
-        $.ajax({
-            type : 'post',
-            url : liurl,
-            dataType : 'html',
-            success : function(data){
-                $("main").html(data);
-            }
-        });
+        $('main').load(liurl);
+        return false;
     });
 });
 
