@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기술문서 | 네이버 지도 API v3</title>
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://rawcdn.githack.com/mburakerman/prognroll/0feda211643153bce2c69de32ea1b39cdc64ffbe/src/prognroll.js"></script>
+    <script src="./js/ui.js"></script>
+</head>
+<body>
+    <div class="app">
+        <header class="navbar">
+            <div class="left">
+                <a href="#" class="mobile_tab"></a>
+                <a href="#none" class="logo">
+                    <img src="./images/logo.png" alt="NAVER Maps JavaScript API v3">
+                </a>
+            </div>
+            <div class="right">
+                <form class="search-box">
+                    <input type="text" class="search-txt" placeholder="검색" onfocus="this.placeholder=''" onblur="this.placeholder='검색'">    
+                    <a href="#none" class="search-btn">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </a>
+                </form>
+                <a href="http://developers.naver.com/main/" class="naver-developers">
+                    <img src="./images/logo_naverDevelopers.png" alt="NAVER Developers 사이트로 이동">
+                </a>
+            </div>
+        </header>
+        <aside>
+            <nav class="menu">
+                <a href="http://developers.naver.com/main/" class="naver-developers-in-menu" target='_blank'>
+                    <span>
+                        NAVER Developers <i class="fa-solid fa-up-right-from-square"></i>
+                    </span>
+                </a>
+                <ul>
+                    <li>
+                        <ul>
+                            <li data-url="page-hello.html">Hello, NAVER Maps API</li>
+                        </ul>
+                    </li>
+                    <li>
+                        개요
+                        <ul>
+                            <li data-url="page1-1.html">NAVER 지도 API v3 특징</li>
+                            <li data-url="page1-2.html">축약형 표현</li>
+                            <li data-url="page1-3.html">KVO 디자인</li>
+                            <li data-url="page1-4.html">서브 모듈 시스템</li> 
+                            <li data-url="page1-5.html">사용 제한</li>
+                        </ul>
+                    </li>
+                    <li>
+                        시작하기
+                        <ul>
+                            <li data-url="page2-1.html">클라이언트 아이디 발급</li>
+                            <li data-url="page2-2.html">Hello, World</li>    
+                        </ul>
+                    </li>
+                    <li>
+                        지도
+                        <ul>
+                            <li data-url="page3-1.html">지도 생성 및 기본 동작</li>
+                            <li data-url="page3-2.html">지도 유형</li>
+                            <li data-url="page3-3.html">지도 투영과 좌표 체계</li>
+                        </ul>
+                    </li>
+                    <li>
+                        이벤트
+                        <ul>
+                            <li data-url="page4-1.html">DOM 이벤트</li>
+                            <li data-url="page4-2.html"> KVO 상태 변경 알림</li>    
+                            <li data-url="page4-3.html">UI 이벤트</li>
+                        </ul>
+                    </li>
+                    <li>
+                        컨트롤
+                        <ul>
+                            <li data-url="page5-1.html">지도 컨트롤</li>
+                            <li data-url="page5-2.html">사용자 정의 컨트롤</li>    
+                        </ul>
+                    </li>
+                    <li>
+                        데이터 표시
+                        <ul>
+                            <li data-url="page6-1.html">레이어</li>
+                            <li data-url="page6-2.html">데이터 레이어</li>
+                            <li data-url="page6-3.html">데이터 시각화</li>
+                        </ul>
+                    </li>
+                    <li>
+                        오버레이
+                        <ul>
+                            <li data-url="page7-1.html">오버레이 개요</li>
+                            <li data-url="page7-2.html">마커</li>
+                            <li data-url="page7-3.html">정보 창</li>
+                            <li data-url="page7-4.html">도형</li>
+                            <li data-url="page7-5.html">지상 오버레이</li>
+                            <li data-url="page7-6.html">사용자 정의 오버레이</li>
+                        </ul>
+                    </li>
+                    <li>
+                        파노라마
+                        <ul>
+                            <li data-url="page8-1.html">파노라마 생성 및 기본 동작</li>
+                        </ul>
+                    </li>
+                    <li>
+                        좌표-주소-변환
+                        <ul>
+                            <li data-url="page9-1.html">Geocoder를 활용한 주소와 <br>좌표 검색 API 호출하기</li>
+                            <li data-url="page9-2.html">Geocoder를 활용한 좌표 변환</li>    
+                        </ul>
+                    </li>
+                    <li>
+                        그리기 도구
+                        <ul>
+                            <li data-url="page10-1.html">그리기 도구 생성 및 기본 동작</li>
+                        </ul>
+                    </li>
+                    <li>
+                        마이그레이션
+                        <ul>
+                            <li data-url="page11-1.html">마이그레이션: v1에서 v3로 전환하기</li>
+                            <li data-url="page11-2.html">마이그레이션: v2에서 v3로 전환하기</li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+        <main>
+            <div class="page">
+                <img src="./images/logo_100x100.jpg" class="logo-img" alt="">
+                <h1><span class="hello-txt">Hello,</span><br>NAVER Maps API</h1>
+                <p>네이버 지도 API는 무료로 제공됩니다.<br>클라이언트 ID를 등록하고, 지금 바로 사용해 보세요.</p>
+                
+                <h2>NAVER 지도 API v3</h2>
+                <p>NAVER 지도 API v3는 JavaScript 형태의 NAVER 지도 플랫폼으로써, 웹 서비스 또는 애플리케이션에 지도 기능을 구현할 수 있도록 다양한 클래스와 메서드를 제공합니다.</p>
+                
+                <h2>웹 브라우저 호환성</h2>
+                <p>NAVER 지도 API v3는 성능을 높이기 위해 데스크톱과 모바일 환경에 최적화된 코드를 제공하고 있으며, 주요 웹 브라우저를 완벽하게 지원할 수 있도록 새롭게 만들었습니다.</p>
+
+                <h3>코어 API</h3>
+                <img src="./images/coreAPI.png" class="coreAPI-img" alt="PC는 익스플로러 11 이상, 크롬, 사파리 5 이상, 파이어폭스를 지원하고, Mobile은 안드로이드 3 이상, iOS 7 이상, 크롬, 사파리 5 이상, 파이어폭스를 지원합니다">
+                
+                <h3>서브 모듈 API</h3>
+                <p>
+                    <em><strong> Visualization</strong></em>
+                </p>
+                <ul>
+                    <li>PC
+                        <ul>
+                            <li>Internet Explorer 9 이상</li>
+                            <li>Chrome</li>
+                            <li>Safari 5 이상</li>
+                            <li>Firefox</li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li>Mobile
+                        <ul>
+                            <li>Android 5 이상</li>
+                            <li>iOS 9 이상</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h2>시작하기</h2>
+                <p>여러분의 지도를 만들어 보세요.</p>
+                <p>
+                    <a href="#none" class="detail-btn">시작하기 ></a>
+                    <a href="#none" class="detail-btn">내 애플리케이션 등록하기 ></a>
+                    <a href="#none" class="detail-btn">NAVER 지도 API v3 특징 알아보기 ></a>
+                    <a href="#none" class="detail-btn">예제 모아보기</a>
+                </p>
+                <p>네이버 클라우드 플랫폼 사용자의 경우는 <a href="#none" class="hyperlink">네이버 클라우드 플랫폼 가이드</a>를 참고해 주세요.</p>
+
+                <h2>함께 사용할 수 있는 지도 API</h2>
+                <p>다양한 데이터를 지도 서비스와 결합해 위치 기반 서비스를 만들어 보세요.</p>
+                <ul>
+                    <li>주소 &rarr; 좌표 변환 API</li>
+                    <li>좌표 &rarr; 주소 변환 API</li>
+                    <li>StaticMap API</li>
+                </ul>
+                <p>자세한 내용은 <a href="#none" class="hyperlink">네이버 지도 API 명세</a>를 참고하세요.</p>
+                <p>네이버 클라우드 플랫폼 사용자의 경우는 <a href="#none" class="hyperlink">네이버 클라우드 플랫폼 가이드</a>를 참고해 주세요.</p>
+
+                <h2>문의하기</h2>
+                <p>다양한 의견을 <a href="#none" class="hyperlink">Issues</a>에 등록해 주세요. 문의 사항이나 버그 제보 역시 환영합니다.</p>
+            </div>
+        </main>
+        <footer>
+            <div class="inner-footer">
+                <span class="copyright">Copyright © 2016 NAVER Corp. All rights reserved.</span>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

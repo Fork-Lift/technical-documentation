@@ -1,0 +1,285 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+.app {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    height: 10%;
+    background-color: #00BF46;
+    z-index: 2;
+}
+
+.mobile_tab {
+    display: none;
+    width: 32px;
+    height: 32px;
+    margin: auto 0 auto 20px;
+    background: url(../images/toggle_button.png) no-repeat;
+}
+
+.mobile_tab.close {
+    display: none;
+}
+
+.left {
+    display: flex;
+}
+
+.logo {
+    margin: auto 20px;
+}
+
+
+.right {
+    display: flex;
+}
+
+.search-box{
+    width: 32px;
+    height: 32px;
+    margin: auto 20px auto 0;
+    background-color: #fff;
+    border: 1px solid #00BF46;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.search-box:hover{
+    width: 282px;
+    box-shadow: 0px 0px .5px 1px #00BF46;
+}
+
+.search-btn{
+    display: flex;
+    float: right;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 50%;
+    color: #00BF46;
+    overflow: hidden;
+}
+
+.search-box:hover > .search-btn{
+    background-color: #fff;
+}
+
+.search-txt{
+    display: flex;
+    float: left;
+    width: 0;
+    line-height: 30px;
+    background: none;
+    border:none;
+    outline: none;
+    font-size: 12px;
+    transition: 0.3s;
+}
+
+.search-txt:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.search-box:hover > .search-txt{
+    width: 240px;
+    padding: 0 6px;
+}
+
+.naver-developers {
+    margin: auto 10px;
+    transform: scale(0.9);
+}
+
+aside {
+    position: fixed;
+    display: block;
+    width: max(260px, 20%);
+    height: 90%;
+    top: 10%;
+    padding: 20px 20px 40px;
+    background-color: #fff;
+    overflow-y: scroll;
+    z-index: 1;
+}
+
+
+.menu ul {
+    list-style: none;
+}
+
+.menu ul li {
+    margin-top: 20px;
+    font-weight: 700;
+}
+
+.menu ul li ul li {
+    margin-top: 5px;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.menu ul li ul li:hover {
+    font-weight: 700;
+    color: #00BF46;
+}
+
+.naver-developers-in-menu {
+    display: none;
+    padding-bottom: 15px;
+    border-bottom: 1px solid lightgray;
+    text-align: center;
+    color: black;
+}
+
+main, 
+footer {
+    width: 80%;
+    margin-left: max(260px, 20%);
+}
+
+main {
+    padding: 40px 60px;
+}
+
+/* page 공통 */
+.page {
+    display: flex;
+    flex-flow: column wrap;
+    margin: 10vh auto 0;
+    font-weight: 300;
+}
+
+.page h1 {
+    margin-bottom: 10px;
+}
+
+.page h2, 
+.page h3 {
+    margin: 30px 0 10px;
+}
+
+.page ul {
+    padding-left: 35px;
+    margin: 10px 0;
+}
+
+.hyperlink {
+    color: blue;
+}
+
+/* page 1 */
+.logo-img {
+    width: max(50px, 10%);
+}
+
+.hello-txt {
+    color: #00BF46;
+}
+
+.coreAPI-img {
+    width: 70%;
+    margin: 10px;
+}
+
+.detail-btn {
+    display: inline-block;
+    margin: 5px;
+    padding: 5px 20px;
+    border: 2px solid #00BF46;
+    border-radius: 30px;
+    color: #00BF46;
+}
+
+/* page 2 */
+pre {
+    display: flex;
+    width: 90%;
+    margin: 10px 0;
+    padding: 0 20px;
+    background-color: lightgray;
+}
+
+pre code {
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.code-style-red {
+    color: lightcoral;
+}
+
+footer {
+    padding: 20px 40px;
+    border-top: 1px solid lightgrey;
+    font-size: 11px;
+    text-align: center;
+    color: lightgray;
+}
+
+@media (max-width: 1000px){
+    .mobile_tab {
+        display: block;
+    }
+
+    .naver-developers {
+        display: none;
+    }
+
+    .naver-developers-in-menu {
+        display: block;
+    }
+
+    .right {
+        display: flex;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        z-index: 9999;
+    }
+
+    aside {
+        display: none;
+    }
+
+    aside.show {
+        display: block;
+    }
+
+    main,
+    footer {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-box:hover{
+        width: 312px;
+    }
+
+    .search-box:hover > .search-txt{
+        width: 270px;
+    }
+}

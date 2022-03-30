@@ -1,0 +1,56 @@
+<div class="page">
+    <h1>지도 생성 및 기본 동작</h1>
+    <p>Map 객체는 특정 DOM 요소에 지도를 표현합니다. 지도 기본 예제를 참고하시기 바랍니다.</p>
+
+    <h2>지도 초기화하기</h2>
+    <p>지도를 초기화하려면 지도가 표현될 DOM 요소 또는 DOM 요소의 id를 명시해야 합니다.</p>
+    <pre>
+        <code>
+            var map = new naver.maps.Map(document.getElementById('map'));
+        </code>
+    </pre>
+    <p>또는</p>
+    <pre>
+        <code>
+            var map = new naver.maps.Map('map');
+        </code>
+    </pre>
+
+    <h2>지도 유형 설정하기</h2>
+    <p>Map 객체는 지도 유형을 저장하고 있습니다. 지도 유형을 설정하려면 지도 초기화 시 MapOptions를 이용하거나, setMapTypeId 메서드를 이용합니다.</p>
+    <pre>
+        <code>
+            var map = new naver.maps.Map('map', {
+                mapTypeId: naver.maps.MapTypeId.HYBRID
+            });
+        </code>
+    </pre>
+    <p>또는</p>
+    <pre>
+        <code>
+            var maps = new naver.maps.Map('map');
+
+            map.setMapTypeId(naver.maps.MapTypeId.HYBRID);
+        </code>
+    </pre>
+
+    <h2>지도 이동하기</h2>
+    <p>지도는 중심 좌표와 줌 레벨, 좌표 경계를 이용해 이동할 수 있습니다. 또한, 화면의 픽셀 좌표를 이용해 원하는 화면 좌표만큼 이동할 수도 있습니다.</p>
+    <pre>
+        <code>
+            var jeju = new naver.maps.LatLng(33.3590628, 126.534361);
+
+            map.setCenter(jeju); // 중심 좌표 이동
+            map.setZoom(13);     // 줌 레벨 변경
+
+            var seoul = new naver.maps.LatLngBounds(
+                new naver.maps.LatLng(37.42829747263545, 126.76620435615891),
+                new naver.maps.LatLng(37.7010174173061, 127.18379493229875));
+
+            map.fitBounds(seoul); // 좌표 경계 이동
+
+            map.panBy(new naver.maps.Point(10, 10)); // 오른쪽 아래로 10 픽셀 이동
+        </code>
+    </pre>
+    <p>fitBounds 메서드를 이용하면, NAVER 지도 API는 내부적으로 좌표 경계를 화면에 표시할 수 있는 최적의 중심 좌표와 줌 레벨을 계산해 지도를 이동합니다.</p>
+</div>

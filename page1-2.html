@@ -1,0 +1,211 @@
+<div class="page">
+    <h1>축약형 표현</h1>
+
+    <h2>네임스페이스</h2>
+    <p>NAVER 지도 API v3은 <code class="code-style-red">naver.maps</code> 네임스페이스를 사용하며, 사용자의 편의성을 위해 축약형인 <code class="code-style-red">N</code> 네임스페이스를 제공합니다.</p>
+    <p><code class="code-style-red">N</code> 네임스페이스는 NAVER 지도 API v3을 로드하는 시점에 해당 전역 변수가 사용되지 않은 경우에만 유효합니다.</p>
+    <pre>
+        <code>
+            // 일반 표현
+            var map = new naver.maps.Map('map', {
+                center: new naver.maps.LatLng(37.3595704, 127.105399),
+                zoom: 10
+            });
+            
+            // 축약 표현
+            var map2 = new N.Map('map', {
+                center: new N.LatLng(37.3595704, 127.105399),
+                zoom: 10
+            });
+            
+            naver.maps === N; // true
+        </code>
+    </pre>
+    <p>또한, 다음과 같이 사용자 네임스페이스를 사용할 수도 있습니다.</p>
+    <pre>
+        <code>
+            var MyNS = naver.maps;
+
+            var map = new MyNS.Map('map', {
+                center: new MyNS.LatLng(37.3595704, 127.105399),
+                zoom: 10
+            });
+        </code>
+    </pre>
+
+    <h2>기본 클래스 팩토리 메서드</h2>
+    <p>NAVER 지도 API v3은 자주 사용하는 기본 클래스의 인스턴스를 팩토리 메서드 방식으로 생성할 수 있도록 지원합니다.</p>
+    <p>팩토리 메서드를 지원하는 기본 클래스의 목록은 다음과 같습니다.</p>
+    <ul>
+        <li>Point</li>
+        <li>LatLng</li>
+        <li>PointBounds</li>
+        <li>LatLngBounds</li>
+        <li>Size</li>
+    </ul>
+    <p>팩토리 메서드 방식으로 생성한 인스턴스는 new 키워드를 사용해 생성하는 방식과 동일하게 동작합니다.</p>
+    <p>팩토리 메서드와 축약형 네임스페이스를 함께 사용하면 간결한 코드를 작성할 수 있습니다.</p>
+    <pre>
+        <code>
+            var cityHall = naver.maps.LatLng(37.5666805, 126.9784147);
+            var cityHall2 = N.LatLng(37.5666805, 126.9784147);
+
+            cityHall.equals(cityHall2); // true
+
+            var point = naver.maps.Point(10, 20);
+            var point2 = N.Point(10, 20);
+
+            var dokdo = naver.maps.LatLngBounds(
+                naver.maps.LatLng(37.2380651, 131.8562652),
+                naver.maps.LatLng(37.2444436, 131.8786475));
+            var dokdo2 = N.LatLngBounds(
+                N.LatLng(37.2380651, 131.8562652),
+                N.LatLng(37.2444436, 131.8786475));
+
+            var size = naver.maps.Size(300, 400);
+            var size2 = N.Size(300, 400);
+        </code>
+    </pre>
+
+    <h2>기본 클래스의 리터럴 표현</h2>
+    <p>NAVER 지도 API v3에서는 아래의 자주 사용하는 기본 클래스의 인스턴스 객체를 대신해 리터럴 표현을 사용할 수 있습니다.</p>
+    <ul>
+        <li>Point</li>
+        <li>LatLng</li>
+        <li>PointBounds</li>
+        <li>LatLngBounds</li>
+        <li>Size</li>
+    </ul>
+    <p>리터럴 표현은 Object 리터럴과 Array 리터럴 두 가지 방식으로 사용할 수 있습니다.</p>
+
+    <h3>Object 리터럴</h3>
+    <p>Object 리터럴은 객체의 속성을 모두 표현하는 일반 객체입니다.<br>SizeObject 리터럴은 width, height 속성을 포함해야 합니다. PointObject나 LatLngObject 리터럴은 x, y 또는 lat, lng 속성을 포함해야 하며, PointBoundsObject나 LatLngBoundsObject 리터럴은,minX, minY, maxX, maxY 또는 south, west, north, east 속성을 포함해야 합니다.</p>
+
+    <h3>SizeObject 리터럴</h3>
+    <p>naver.maps.Size 클래스를 사용하는 대신 SizeObject 리터럴을 사용할 수 있습니다.<br>
+    SizeObject 리터럴은 width와 height 속성을 포함하는 일반 객체입니다.</p>
+    <pre>
+        <code>
+            var size = new naver.maps.Size(1024, 768),
+                sizeObject = {
+                    width: 1024,
+                    height: 768
+                };
+
+            map.setSize(sizeObject);
+        </code>
+    </pre>
+
+    <h3>PointObject 리터럴</h3>
+    <p>naver.maps.Point 클래스를 사용하는 대신 PointObject 리터럴을 사용할 수 있습니다.<br>
+    PointObject 리터럴은 x와 y 속성을 포함하는 일반 객체입니다.</p>
+    <pre>
+        <code>
+            var point = new naver.maps.Point(64, 128),
+                pointObject = {
+                    x: 64,
+                    y: 128
+                };
+
+            map.setCenterPoint(pointObject);
+        </code>
+    </pre>
+
+    <h3>LatLngObject 리터럴</h3>
+    <p>naver.maps.LatLng 클래스를 사용하는 대신 LatLngObject 리터럴을 사용할 수 있습니다.<br>
+    LatLngObject 리터럴은 lat와 lng 속성을 포함하는 일반 객체입니다.</p>
+    <pre>
+        <code>
+            var latlng = new naver.maps.LatLng(37.5666103, 126.9783882),
+                latlngObject = {
+                    lat: 37.5666103,
+                    lng: 126.9783882
+                };
+
+            map.setCenter(latlngObject);
+        </code>
+    </pre>
+    <p>LatLngObject 리터럴을 사용할 수 있는 곳에서는 PointObject 리터럴도 사용할 수 있습니다.</p>
+
+    <h3>PointBoundsObject 리터럴</h3>
+    <p>naver.maps.PointBounds 클래스를 사용하는 대신 PointBoundsObject 리터럴을 사용할 수 있습니다.<br>
+    PointBoundsObject 리터럴은 minX, minY, maxX, maxY 속성을 포함하는 일반 객체입니다.</p>
+    <pre>
+        <code>
+            var pointBounds = new naver.maps.PointBounds(
+                            new naver.maps.Point(125, 36),
+                            new naver.maps.Point(128, 38)),
+                pointBoundsObject = {
+                    minX: 125,
+                    minY: 36,
+                    maxX: 128,
+                    maxY: 37
+                };
+
+            map.fitBounds(pointBoundsObject);
+        </code>
+    </pre>
+
+    <h3>LatLngBoundsObject 리터럴</h3>
+    <p>naver.maps.LatLngBounds 클래스를 사용하는 대신 LatLngBoundsObject 리터럴을 사용할 수 있습니다.<br>
+    LatLngBoundsObject 리터럴은 south, west, north, east 속성을 포함하는 일반 객체입니다.</p>
+    <pre>
+        <code>
+            var latlngBounds = new naver.maps.LatLngBounds(
+                            new naver.maps.LatLng(36, 125),
+                            new naver.maps.LatLng(38, 128)),
+                latlngBoundsObject = {
+                    south: 36,
+                    west: 125,
+                    north: 38,
+                    east: 128
+                };
+
+            map.fitBounds(latlngBoundsObject);
+        </code>
+    </pre>
+    <p>LatLngBoundsObject 리터럴을 사용할 수 있는 곳에서는 PointBoundsOBject 리터럴도 사용할 수 있습니다.</p>
+
+    <h3>Array 리터럴</h3>
+    <p>Array 리터럴은 GeoJSON 방식의 순서로 된 배열로 표기합니다.<br>
+    SizeArray 리터럴의 순서는 width, height입니다.<br>
+    PointArray 리터럴의 순서는 x, y 또는 lng, lat이며, PointBoundsArray 리터럴은 4개의 배열 원소를 minX, minY, maxX, maxY 또는 west, south, east, north 순서로 배치합니다.</p>
+
+    <h3>SizeArray 리터럴</h3>
+    <p>naver.maps.Size 클래스를 사용하는 대신 SizeArray 리터럴을 사용할 수 있습니다.<br>
+    SizeArray 리터럴은 [width, height] 순서로 된 배열 객체입니다.</p>
+    <pre>
+        <code>
+            var size = new naver.maps.Size(1024, 768),
+                sizeArray = [1024, 768];
+
+            map.setSize(sizeArray);
+        </code>
+    </pre>
+
+    <h3>PointArray 리터럴</h3>
+    <p>naver.maps.Point 클래스를 사용하는 대신 PointArray 리터럴을 사용할 수 있습니다.<br>
+    PointArray 리터럴은 [x, y] 또는 [lng, lat] 순서로 된 배열 객체입니다.</p>
+    <pre>
+        <code>
+            var latlng = new naver.maps.LatLng(37.5666103, 126.9783882),
+                pointArray = [126.9783882, 37.5666103];
+        
+            map.setCenter(pointArray);
+        </code>
+    </pre>
+
+    <h3>PointBoundsArray 리터럴</h3>
+    <p>naver.maps.PointBounds 클래스를 사용하는 대신 PointBoundsArray 리터럴을 사용할 수 있습니다.<br>
+    PointBoundsArray 리터럴은 [minX, minY, maxX, maxY] 또는 [west, south, east, north] 순서로 된 배열 객체입니다.</p>
+    <pre>
+        <code>
+            var latlngBounds = new naver.maps.LatLngBounds(
+                            new naver.maps.LatLng(36, 125),
+                            new naver.maps.LatLng(38, 128)),
+                pointBoundsArray = [125, 36, 128, 38];
+
+            map.fitBounds(pointBoundsArray);
+        </code>
+    </pre>
+</div>
